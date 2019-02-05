@@ -129,5 +129,14 @@ $ ->
     },
   }, 600, 200)
 
+  $('#drawerjs-export').click ->
+    canvas.api.startEditing()
+    imageData = canvas.api.getCanvasAsImage()
+    if imageData
+      debugger
+      decodeImageData = atob(imageData.split(',')[1])
+      file = new File([decodeImageData], 'image_data.png', { type: 'image/png' })
+    canvas.api.stopEditing()
+
   $('#drawerjs-canvas').append(canvas.getHtml())
   canvas.onInsert()
