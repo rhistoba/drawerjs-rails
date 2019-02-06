@@ -2,7 +2,6 @@
   "name": "drawer",
   "private": true,
   "dependencies": {
-    "fabric": "^2.6.0",
     "jquery": "^3.3.1"
   }
 }

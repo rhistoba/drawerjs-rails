@@ -131,11 +131,12 @@ $ ->
 
   $('#drawerjs-export').click ->
     canvas.api.startEditing()
-    imageData = canvas.api.getCanvasAsImage()
-    if imageData
-      debugger
-      decodeImageData = atob(imageData.split(',')[1])
-      file = new File([decodeImageData], 'image_data.png', { type: 'image/png' })
+    image_data = canvas.api.getCanvasAsImage()
+    if image_data
+      authenticity_token = $('meta[name="csrf-token"]').attr('content')
+      $.post('/save', { image_data: image_data, authenticity_token: authenticity_token }, (data) ->
+        console.log('saved')
+      )
     canvas.api.stopEditing()
 
   $('#drawerjs-canvas').append(canvas.getHtml())
