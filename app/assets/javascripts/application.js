@@ -13,6 +13,6 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require 'jquery/dist/jquery'
-//= require 'drawerJs.standalone'
+//= require 'jquery/dist/jquery.min'
+//= require 'drawerJs.standalone.min'
 //= require_tree .
